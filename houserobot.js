@@ -98,7 +98,7 @@ class scenery {
         this.h = h;
         this.w = w;
     }
-    floor(){
+    room(){
         strokeWeight(0);
         fill(150);
         triangle(this.x, this.y + this.h, 100, 360, 100, this.y + this.h);
@@ -110,12 +110,41 @@ class scenery {
         line(100, 360, 500, 360);
         line(100, 360, 100, 0);
         line(500, 360, 500, 0);
-        fill(60, 120, 225)
+        fill(60, 120, 225);
         rect(150, 100, 300, 160);
-        line(300, 100, 300, 260)
+        line(300, 100, 300, 260);
         line(150, 180, 450, 180);
+        line(300, 0, 300, 20);
+
+    }
+    backlight(){
+        fill(225, 225, 0, 30);
+        strokeWeight(0);
+        triangle(300, 20, 100, 360, 500, 360);
+        fill(225, 225, 0, 30);
+        strokeWeight(0);
+        triangle(300, 20, 100, 360, 500, 360);
+        fill(0, 0, 0, 30);
+        quad(0, 600, 0, 0, 100, 0, 100, 360);
+        quad(600, 600, 600, 0, 500, 0, 500, 360);
+        triangle(100, 360, 300, 20, 100, 20);
+        triangle(300, 20, 500, 20, 500, 360);
+        rect(100, 0, 400, 20);
+        fill(225, 225, 10, 10)
+        triangle(100, 360, 0, 600, 300, 20);
+        triangle(500, 360, 600, 600, 300, 20);
+
+    }
+    light(){
+        fill(225, 225, 0, 30)
+        strokeWeight(0);
+        triangle(300, 20, 0, 600, 600, 600);
+        strokeWeight(2);
+        fill(255,255,0);
+        ellipse(300, 20, 15, 10);
     }
 }
+
 
 
 let robotX = 300;
@@ -134,11 +163,13 @@ function setup(){
 }
 
 function draw(){
-    background(100, 225, 100);
-    Scenery.floor();
+    background(50, 225, 60);
+    Scenery.room();
+    Scenery.backlight();
     Robot.move();
     Robot.draw();
     Robot.idle();
+    Scenery.light();
 
 }
 
