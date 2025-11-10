@@ -85,6 +85,16 @@ class robot {
       this.y = robotH + 2; // move down 1
     }
   }
+    plug(){
+        strokeWeight(1);
+        fill(220);
+        quad(90, 365, 90, 345, 85, 357, 85, 377)
+        fill(4);
+        rect(87, 358, 10, 8)
+        strokeWeight(2);
+        line(97, 362, 120, 380);
+        line(120, 380, this.x - (this.w / 2), 380)
+}
 }
 
 class scenery {
@@ -143,6 +153,7 @@ class scenery {
         fill(255,255,0);
         ellipse(300, 20, 15, 10);
     }
+
 }
 
 
@@ -170,6 +181,6 @@ function draw(){
     Robot.draw();
     Robot.idle();
     Scenery.light();
-
+    Robot.plug();
 }
 
